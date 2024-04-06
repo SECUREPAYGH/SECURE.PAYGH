@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SECURE.PAYGH Transaction Form</title>
+<style>
+    body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #3498db; 
+}
+
+.transaction-form {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff; 
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.form-group select {
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.note {
+  font-size: smaller;
+  display: block;
+  margin-top: 5px;
+}
+
+.success-message {
+  margin-top: 15px;
+  text-align: center;
+  color: #2ecc71; 
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+</style>.
+</head>
+<body>
+  <form class="transaction-form" action="submit_form.php" method="post" enctype="multipart/form-data">
+    <h2> SECURE.PAYGH Transaction Form</h2>
+    <div class="form-group">
+      <label for="yourName">Your Name:</label>
+      <input type="text" id="yourName" name="yourName" required>
+    </div>
+    <div class="form-group">
+      <label for="sellerName">Service provider's Name:</label>
+      <input type="text" id="sellerName" name="sellerName" required>
+    </div>
+    <div class="form-group">
+      <label for="productName">Service Name:</label>
+      <input type="text" id="productName" name="productName" required>
+    </div>
+    <div class="form-group">
+      <label for="productImage">Service Photo:</label>
+      <input type="file" id="productImage" name="productImage" accept="image" >
+    </div>
+    <div class="form-group">
+      <label for="amount">Amount (GH):</label>
+      <input type="number" id="amount" name="amount" required>
+      <span class="note">**Note:** We will deduct our charge from this amount.</span>
+    </div>
+    <div class="form-group">
+      <label for="sellerPhone">Service provider's Phone Number:</label>
+      <input type="tel" id="sellerPhone" name="sellerPhone" required>
+    </div>
+    <div class="form-group">
+      <label for="yourPhone">Your Phone Number:</label>
+      <input type="tel" id="yourPhone" name="yourPhone" required>
+    </div>
+    <button type="submit">Submit Transaction Request</button>
+    <p class="success-message">Upon submission, the seller will be notified by SMS of your wish to use SECURE.PAYGH for the transaction.</p>
+  </form>
+
+</body>
+</html>

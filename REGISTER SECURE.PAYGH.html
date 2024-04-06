@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTER SECURE.PAYGH</title>
+    <style>
+ body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.header {
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.5em;
+  color: #888;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+p {
+  margin-bottom: 10px;
+ 
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+;
+}
+
+ul li {
+  margin-bottom: 5px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.form-wrapper {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  width: 400px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+
+.pass-field input {
+  width: 40%;
+  height: 100%;
+  outline: none;
+  padding: 0 17px;
+  font-size: 1rem;
+}
+
+.pass-field i {
+  right: 18px;
+  top: 50%;
+  font-size: 1.2rem;
+  color: #999;
+  cursor: pointer;
+  position: absolute;
+  transform: translateY(-50%);
+}
+.wrapper .content {
+  margin: 20px 0 10px;
+}
+.content p {
+  color: #333;
+  font-size: 1.3rem;
+}
+.content .requirement-list {
+  margin-top: 20px;
+}
+.requirement-list li {
+  font-size: 1.3rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.requirement-list li i {
+  width: 20px;
+  color: #aaa;
+  font-size: 0.6rem;
+}
+.requirement-list li.valid i {
+  font-size: 1.2rem;
+  color: #4285F4;
+}
+.requirement-list li span {
+  margin-left: 12px;
+  color: #333;
+}
+.requirement-list li.valid span {
+  color: #999;
+}
+@media screen and (max-width: 500px) {
+  body, .wrapper {
+    padding: 15px;
+  }
+  .wrapper .pass-field {
+    height: 55px;
+  }
+  .pass-field input, .content p  {
+    font-size: 1.15rem;
+  }
+  .pass-field i, .requirement-list li {
+    font-size: 1.1rem;
+  }
+  .requirement-list li span {
+    margin-left: 7px;
+  }
+}
+.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox label {
+  margin-left: 5px;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button[type="button"
+]
+
+    </style>
+    <script>
+      const passwordInput = document.querySelector(".pass-field input");
+const eyeIcon = document.querySelector(".pass-field i");
+const requirementList = document.querySelectorAll(".requirement-list li");
+
+// An array of password requirements with corresponding 
+// regular expressions and index of the requirement list item
+const requirements = [
+    { regex: /.{8,}/, index: 0 }, // Minimum of 8 characters
+    { regex: /[0-9]/, index: 1 }, // At least one number
+    { regex: /[a-z]/, index: 2 }, // At least one lowercase letter
+    { regex: /[^A-Za-z0-9]/, index: 3 }, // At least one special character
+    { regex: /[A-Z]/, index: 4 }, // At least one uppercase letter
+]
+
+passwordInput.addEventListener("keyup", (e) => {
+    requirements.forEach(item => {
+        // Check if the password matches the requirement regex
+        const isValid = item.regex.test(e.target.value);
+        const requirementItem = requirementList[item.index];
+
+        // Updating class and icon of requirement item if requirement matched or not
+        if (isValid) {
+            requirementItem.classList.add("valid");
+            requirementItem.firstElementChild.className = "fa-solid fa-check";
+        } else {
+            requirementItem.classList.remove("valid");
+            requirementItem.firstElementChild.className = "fa-solid fa-circle";
+        }
+    });
+});
+
+eyeIcon.addEventListener("click", () => {
+    // Toggle the password input type between "password" and "text"
+    passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+
+    // Update the eye icon class based on the password input type
+    eyeIcon.className = `fa-solid fa-eye${passwordInput.type === "password" ? "" : "-slash"}`;
+});
+      </script>
+</head>
+<body>
+    
+    <div class="container">
+        <header class="header">
+            <h1>SECURE.PAYGH</h1>
+            <h2>Let's Get Started!</h2>
+          </header>
+          <div class="form-wrapper">
+            <h3>HEY THERE!</h3>
+            <form action="#" method="post">
+            <div class="form-group">
+                <label for="Fullname">Fullname</label>
+                <input type="text" id="Fullname" name="Fullname" placeholder="Enter username" required>
+            </div>
+            <div class="form-group">
+                <label for="ghanaCard">GhanaCard ID</label>
+                <input type="text" id="ghanaCard" name="ghanaCard" placeholder="Enter Ghana Card ID" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter email" required>
+            </div>
+            <div class="form-group">
+                <label for="Password">Password</label>
+            <div class="wrapper">
+      <div class="pass-field">
+        <input type="password" id="password" name="password" placeholder="Create password">
+        <i class="fa-solid fa-eye"></i>
+      </div>
+      <div class="content">
+        <p>Password must contains</p>
+        <ul class="requirement-list">
+          <li>
+            <i class="fa-solid fa-circle"></i>
+            <span>At least 8 characters length</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-circle"></i>
+            <span>At least 1 number (0...9)</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-circle"></i>
+            <span>At least 1 lowercase letter (a...z)</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-circle"></i>
+            <span>At least 1 special symbol (!...$)</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-circle"></i>
+            <span>At least 1 uppercase letter (A...Z)</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+      <br> 
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" placeholder="Enter phone number" required>
+            </div>
+            <div class="form-group">
+                <label for="phone"> Transactions Momo Number</label>
+                <input type="text" id="phone" name="phone" placeholder="Enter Momo number" required>
+            </div>
+            <div class="form-group">
+                <label for="address">House Address</label>
+                <input type="text" id="address" name="address" placeholder="Enter house address" required>
+            </div>
+            <div class="form-group">
+                <label for="payment"> Transaction Mobile Network</label>
+                <select id="payment" name="payment">
+                  <option value="mobile">MTN</option>
+                    <option value="mobile">Vodaphone</option>
+                    <option value="mobile ">AirtelTigo</option>
+                </select>
+            </div>
+            <div class="form-group checkbox">
+          <input type="checkbox" id="terms" name="terms" required>
+          <label for="terms">I agree to the Terms of service and privacy policy</label>
+        </div>
+            <div class="form-group">
+                <button><a href="file:///C:/Users/Graham/Documents/SecurePay/Register%20OTP.html"</a>Register</button>
+            </div>
+        </div>
+    </div>
+    <div>
+    </form>
+    <p> Or continue with</p>
+    <div class="social-buttons">
+      <button type="button">G Google</button>
+      
+    </div>
+    <a href="file:///C:/Users/Graham/Documents/SecurePay/LOGIN%20TO%20SECURE.PAYGH.html"> Already have an account?LOGIN</a>
+  </div>
+  <footer class="footer">
+    <p>Get started with SECURE.PAYGH to have a trusted assurance on your day-day online pruchase.  </p>
+  </footer>
+    </div>
+</div>
+</body>
+</html>
